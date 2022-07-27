@@ -14,9 +14,8 @@ colors = ['red', 'blue', 'green', 'pink']
 # Randomize the start
 random.shuffle(racers)
 
-
 def position_racers(racers):
-    """ Position the racer and attach there coloours and shape """
+    """ Position the racer and attach there colours and shape """
     n = -150.00
     index = 0
     for racer in racers:
@@ -27,8 +26,6 @@ def position_racers(racers):
         racer.pendown()
         n += 100
         index += 1
-
-position_racers(racers)
 
 def race_forward(racer):
     """ Move the racers forward a random number of steps """
@@ -47,7 +44,11 @@ def race(racers):
                 print(f"And the winner is {racer.name}")
                 race = 'off'
 
+def start():
+    """ Start the race """
+    position_racers(racers)
+    race(racers)
 
-race(racers)
+start()
 
 screen.exitonclick()
