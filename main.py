@@ -3,35 +3,27 @@ from turtle import Turtle, Screen
 mason, henryk, dad, mom = Turtle(), Turtle(), Turtle(), Turtle()
 screen = Screen();
 
-# Turn them into turles
-mason.shape('turtle')
-henryk.shape('turtle')
-dad.shape('turtle')
-mom.shape ('turtle')
 
-# Add different colours to the turtles
-mason.color ('red', 'red')
-henryk.color ('blue', 'blue')
-dad.color ('green', 'green')
-mom.color('pink', 'pink')
-
+racers = [mason, henryk, dad, mom]
+colors = ['red', 'blue', 'green', 'pink']
 # Position the racers
 
-mason.penup()
-mason.setpos(x=-320.00, y=50.00)
-mason.pendown()
+def position_racers(racers):
+    n = -150.00
+    index = 0
+    for racer in racers:
+        racer.shape('turtle')
+        racer.color(colors[index])
+        racer.penup()
+        racer.setpos(x=-320.00, y=n)
+        racer.pendown()
+        n += 100
+        index += 1
 
-henryk.penup()
-henryk.setpos(x=-320.00, y=-50.00)
-henryk.pendown()
+position_racers(racers)
 
-dad.penup()
-dad.setpos(x=-320.00, y=150.00)
-dad.pendown()
 
-mom.penup()
-mom.setpos(x=-320.00, y=-150.00)
-mom.pendown()
+
 
 
 
