@@ -12,7 +12,7 @@ colors = ['red', 'blue', 'green', 'pink', 'orange', 'black']
 random.shuffle(racers)
 
 def position_racers(racers):
-    """ Position the racer and attach there colours and shape """
+    """ Position and initiate the racer and attach there colours and shape """
     n = -150.00
     index = 0
     for racer in range(0, 6):
@@ -34,14 +34,21 @@ def race_forward(racer):
 
 def race(racers):
     """ Start the race and keep it going until a racer reaches 320 """
-    race = 'on'
+    race = 'off'
+    user_guess = screen.textinput(title='Make your guess', prompt='Which Colour will win the race? : ')
+    if user_guess:
+        race = 'on'
     while race == 'on':
         for racer in racers:
             if racer.xcor() < 320.00:
                 race_forward(racer)
             else:
-                screen.title(f"And the winner is {racer.name}")
+                screen.title(f"And the winner is {racer.name}, colour = {racer.pencolor()}")
                 print(f"And the winner is {racer.name}")
+                if racer.pencolor() == user_guess:
+                    print('Well done, great guess')
+                else:
+                    print('Unlucky, try again')
                 race = 'off'
 
 def start():
