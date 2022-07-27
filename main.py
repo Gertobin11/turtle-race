@@ -14,8 +14,9 @@ colors = ['red', 'blue', 'green', 'pink']
 # Randomize the start
 random.shuffle(racers)
 
-# Position the racers
+
 def position_racers(racers):
+    """ Position the racer and attach there coloours and shape """
     n = -150.00
     index = 0
     for racer in racers:
@@ -30,10 +31,12 @@ def position_racers(racers):
 position_racers(racers)
 
 def race_forward(racer):
+    """ Move the racers forward a random number of steps """
     steps = random.randint(1, 20)
     racer.fd(steps)
 
 def race(racers):
+    """ Start the race and keep it going until a racer reaches 320 """
     race = 'on'
     while race == 'on':
         for racer in racers:
