@@ -3,13 +3,10 @@ import random
 
 mason, henryk, dad, mom = Turtle(), Turtle(), Turtle(), Turtle()
 screen = Screen()
-mason.name = 'Mason'
-henryk.name = 'Henryk'
-dad.name = 'Dad'
-mom.name = 'Mom'
+names = ['Mason', 'Henryk', 'Dad', 'Mom', 'Chris', 'Donal']
 
-racers = [mason, henryk, dad, mom]
-colors = ['red', 'blue', 'green', 'pink']
+racers = []
+colors = ['red', 'blue', 'green', 'pink', 'orange', 'black']
 
 # Randomize the start
 random.shuffle(racers)
@@ -18,13 +15,16 @@ def position_racers(racers):
     """ Position the racer and attach there colours and shape """
     n = -150.00
     index = 0
-    for racer in racers:
+    for racer in range(0, 6):
+        racer = Turtle()
         racer.shape('turtle')
         racer.color(colors[index])
+        racer.name = names[index]
+        racers.append(racer)
         racer.penup()
         racer.setpos(x=-320.00, y=n)
         racer.pendown()
-        n += 100
+        n += 40
         index += 1
 
 def race_forward(racer):
